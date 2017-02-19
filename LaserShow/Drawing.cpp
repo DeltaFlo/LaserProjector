@@ -149,8 +149,9 @@ void Drawing::drawObjectRotated(const unsigned short* data, int size, long cente
 void Drawing::drawObjectRotated3D(const unsigned short* data, int size, long centerX, long centerY, int angleX, int angleY, int zDist)
 {
   Matrix3 world;
-  world = Matrix3::rotateX(angleX);
-  world = Matrix3::multiply(Matrix3::rotateY(angleY), world);
+  Matrix3 tmp;
+  tmp = Matrix3::rotateX(angleX);
+  Matrix3::multiply(Matrix3::rotateY(angleY), tmp, world);
   
   laser.setEnable3D(true);
   laser.setMatrix(world);

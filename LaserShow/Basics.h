@@ -22,7 +22,9 @@ struct Matrix3 {
       {   0,    0, PRES}
   };
    static void applyMatrix(const Matrix3& matrix, const Vector3i& in, Vector3i& out);
-   static Matrix3 multiply(const Matrix3 &mat1, const Matrix3 &mat2);
+   // due to a GCC compiler bug, I could not return a Matrix3. Make sure that
+   // mat1 and mat2 are != result!
+   static void multiply(const Matrix3 &mat1, const Matrix3 &mat2, Matrix3& result);
    static Matrix3 rotateX(const unsigned int angle); 
    static Matrix3 rotateY(const unsigned int angle);
    static Matrix3 rotateZ(const unsigned int angle);

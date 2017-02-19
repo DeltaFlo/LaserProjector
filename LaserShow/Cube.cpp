@@ -125,9 +125,10 @@ void rotateCube(int count) {
   {    
     long time = micros();
     // rotation
+    Matrix3 tmp;
     m_world = Matrix3::rotateX(mesh_rotation.x);
-    m_world = Matrix3::multiply(Matrix3::rotateY(mesh_rotation.y), m_world);
-    m_world = Matrix3::multiply(Matrix3::rotateZ(mesh_rotation.z), m_world);
+    Matrix3::multiply(Matrix3::rotateY(mesh_rotation.y), m_world, tmp);
+    Matrix3::multiply(Matrix3::rotateZ(mesh_rotation.z), tmp, m_world);
 
     // project nodes with world matrix
     Vector3i p1;

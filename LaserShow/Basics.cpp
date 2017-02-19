@@ -39,15 +39,13 @@ static long pMultiply(long x, long y) {
 // ----------------------------------------------
 // Matrix operation
 // ----------------------------------------------
-Matrix3 Matrix3::multiply(const Matrix3 &mat1, const Matrix3 &mat2) {
-  Matrix3 mat;
+void Matrix3::multiply(const Matrix3 &mat1, const Matrix3 &mat2, Matrix3& mat ) {
   unsigned char r,c;
   for (c=0; c<3; c++)
     for (r=0; r<3; r++)
       mat.m[c][r] = pMultiply(mat1.m[0][r], mat2.m[c][0]) +
                     pMultiply(mat1.m[1][r], mat2.m[c][1]) +
                     pMultiply(mat1.m[2][r], mat2.m[c][2]);
-  return mat;
 }
 
 Matrix3 Matrix3::rotateX(const unsigned int angle) {
