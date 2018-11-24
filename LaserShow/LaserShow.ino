@@ -12,7 +12,10 @@ Laser laser(5);
 
 void setup()
 {  
+  Serial.begin(9600);
+  Serial.print("laser initialization started\n");
   laser.init();
+  Serial.print("laser initialization finished\n");
 }
 
 
@@ -373,15 +376,25 @@ void drawScroller(String s, float scale = 0.5, int offsetY = 2048, int speed = 1
 }
 
 void loop() {
+  Serial.print("countdown started\n");
   countDown();
+  Serial.print("letterEffect started\n");
   letterEffect();
+  Serial.print("presents started\n");
   presents();
+  Serial.print("arduino started\n");
   arduino();
+  Serial.print("laserShow started\n");
   laserShow();
+  Serial.print("drawPlane started\n");
   drawPlane();
+  Serial.print("drawLogo started\n");
   drawLogo();
+  Serial.print("drawScroller started\n");
   drawScroller(String("THIS PROJECT IS AVAILABLE ON INSTRUCTABLES.COM"),0.5,2048,100);
+  Serial.print("drawWeLove started\n");
   drawWeLove();
+  Serial.print("2DRotate started\n");
   drawArduino2DRotate();
   whatAbout3D();
   rotateCube(400);
