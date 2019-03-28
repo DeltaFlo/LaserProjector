@@ -1,6 +1,0 @@
-{
-    "port": "/dev/cu.usbmodem141101",
-    "board": "arduino:avr:mega",
-    "sketch": "interactiveLaserShow.ino",
-    "configuration": "cpu=atmega2560"
-}
